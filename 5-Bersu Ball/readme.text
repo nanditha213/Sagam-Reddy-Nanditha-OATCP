@@ -1,0 +1,19 @@
+It takes two inputs, n and m, representing the sizes of two arrays.
+It reads the elements of the first array a[] of size n.
+It reads the elements of the second array b[] of size m.
+It sorts both arrays a[] and b[].
+It initializes a variable pairs to count the number of pairs of elements that satisfy the condition.
+It iterates through each element of array a[] and checks against each element of array b[] to find pairs where the absolute difference between elements is less than 2.
+If such a pair is found, it increments pairs and marks the element of array b[] as 'visited' by assigning a value of 1000 (this is arbitrary, just to mark it as visited).
+It breaks out of the inner loop after finding such a pair, as each element of a[] can form a pair with at most one element of b[].
+Finally, it prints the count of pairs.
+This problem is similar to the Bersu Ball problem where you have two sets of boys and girls, and you want to form pairs such that the age difference between a boy and a girl in a pair is at most one.
+
+In this code:
+
+Array a[] represents one set (e.g., boys).
+Array b[] represents another set (e.g., girls).
+The algorithm iterates through each boy (a[] element) and tries to find a suitable girl (b[] element) such that the age difference is at most one.
+If such a girl is found, a pair is formed, and that girl is marked as visited to avoid pairing her with another boy.
+Finally, the code prints the count of pairs formed.
+So, this code essentially implements a greedy algorithm to find pairs of elements from two sets such that the absolute difference between them is less than 2, which is the essence of the Bersu Ball problem.
