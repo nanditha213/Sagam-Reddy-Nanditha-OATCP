@@ -1,0 +1,19 @@
+This C++ code defines a class Solution with a method maxIceCream that takes a vector of integers costs representing the costs of various ice creams and an integer coins representing the amount of money available. The method returns the maximum number of ice creams you can buy with the given coins.
+
+Here's a breakdown of what's happening, specifically in relation to counting sort:
+
+Counting occurrences of costs:
+
+First, an array arr of size 100001 is declared and initialized with all zeros. This array will be used to count the occurrences of each cost of ice cream.
+Then, a loop iterates through the costs vector. For each cost costs[i], the corresponding index in the arr array is incremented by 1.
+Calculating maximum ice creams:
+
+Another loop iterates from 1 to 100000 (inclusive). This loop essentially iterates through all possible costs of ice cream.
+Inside this loop, it checks if arr[i] is non-zero, meaning there are ice creams available at cost i.
+If there are ice creams available at cost i, it calculates the total cost (curr) of buying all available ice creams at that cost.
+If the total cost (curr) is less than or equal to the available coins, it updates the count cnt by adding the count of ice creams at cost i (arr[i]) to it. It also subtracts the total cost from the available coins.
+If the total cost (curr) exceeds the available coins, it calculates how many ice creams can be bought partially, using integer division (coins/i). It adds this count to cnt and then breaks out of the loop since no more ice creams can be bought.
+Returning the result:
+
+The method returns the final count cnt, which represents the maximum number of ice creams that can be bought with the given coins.
+This algorithm has a time complexity of O(n + k), where n is the number of elements in the costs vector and k is the range of costs (100000 in this case). It uses counting sort to efficiently count the occurrences of each cost.
