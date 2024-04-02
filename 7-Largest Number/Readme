@@ -1,0 +1,26 @@
+This C++ code defines a class Solution with a method largestNumber that takes a vector of integers nums and returns a string representing the largest number that can be formed by concatenating the elements of nums. The numbers are compared based on their concatenations to form the largest possible number.
+
+Here's how the code works:
+
+Custom Comparison Function:
+
+The compare function is defined as a static member function of the Solution class. This function takes two strings a and b as input.
+Inside the compare function, the concatenation of a and b and the concatenation of b and a are compared lexicographically. If a+b is greater than b+a, it means that concatenating a before b results in a larger number, so a should come before b in the sorted order. Therefore, true is returned indicating a should come before b. Otherwise, false is returned.
+This custom comparison function is used later in the code to sort the strings in descending order based on the defined comparison logic.
+Converting Integers to Strings:
+
+The nums vector contains integers. These integers need to be converted to strings to perform the concatenation operation.
+A loop iterates through the nums vector. For each integer nums[i], it converts it to a string using the to_string function and pushes it into the v vector of strings.
+Handling Edge Case:
+
+After converting integers to strings, the code calculates the sum of all integers in nums. If the sum is zero, it means all numbers are zero. In this case, the function returns "0" directly since there's no need to sort.
+Sorting the Strings:
+
+If the sum of integers is not zero, it implies there are non-zero numbers in nums. In this case, the v vector of strings is sorted using the custom comparison function compare.
+Constructing the Final Number:
+
+After sorting, the sorted strings in v are concatenated in order to form the final largest number. This is done by iterating through the sorted vector v and appending each string to the fin string.
+Returning the Result:
+
+Finally, the function returns the fin string, which represents the largest number that can be formed by concatenating the elements of nums according to the defined comparison logic.
+This approach leverages the custom comparison logic to sort the numbers in a way that maximizes the resulting number's value when concatenated.
