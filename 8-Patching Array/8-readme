@@ -1,0 +1,17 @@
+Input: The function minPatches takes two parameters: a vector of integers nums representing a sorted array of distinct positive integers, and an integer target representing the minimum positive integer that cannot be formed by summing up any subset of nums.
+
+Initialization: It initializes variables maxLimit to keep track of the maximum achievable sum using the current patches, and patchCount to count the number of patches added.
+
+Main Loop: The code iterates over the elements of nums:
+
+a. If the current number in nums is greater than (maxLimit + 1), it means there's a gap between the current achievable sum and the next number in nums. To fill this gap, it patches maxLimit with (2 * maxLimit + 1), effectively adding maxLimit + 1 to the patches and incrementing patchCount.
+
+b. Update maxLimit by adding the current number in nums to it.
+
+c. If the updated maxLimit is greater than or equal to the target, it means the target can be achieved with the current patches, so it returns the patchCount.
+
+Final Adjustment: If the loop completes and maxLimit is still less than target, it means we need to add more patches to achieve the target. So, it patches maxLimit until it becomes greater than or equal to target, and increments patchCount accordingly.
+
+Return: Finally, it returns the patchCount, which represents the minimum number of patches required to achieve the target sum.
+
+Overall, the approach is to iteratively build up the maximum achievable sum using the given numbers in nums, patching whenever necessary to fill any gaps between consecutive numbers.
