@@ -1,0 +1,30 @@
+Input: The findMinimumAfterRemoval function takes two parameters:
+
+inputStr: A string representing the input number.
+numRem: An integer representing the number of digits to remove from the input number.
+Initialization:
+
+It initializes a stack called digitStack to keep track of digits while traversing the input string.
+It initializes a variable size to store the size of the input string.
+Traversing the Input String:
+
+It iterates through each digit of the input string.
+While traversing, it compares each digit with the top element of the stack. If the current digit is smaller than the top element of the stack and there are remaining digits to remove (numRem > 0), it removes the top element from the stack and decrements numRem.
+If the stack is empty or the current digit is not '0', it pushes the current digit onto the stack.
+Removing Remaining Digits:
+
+After traversing the input string, it ensures that all the remaining digits to remove are popped from the stack.
+Handling Edge Cases:
+
+If the stack is empty after removing digits, it means all digits were removed, and it returns "0".
+Constructing the Result:
+
+It reconstructs the result string by popping digits from the stack and appending them to the end of the input string.
+Returning the Result:
+
+It returns the substring of the input string starting from the updated size, which contains the minimum number after removing the specified number of digits.
+Main Function:
+
+In the main function, it reads the input number string (numStr) and the number of digits to remove (remDigits).
+It calls the findMinimumAfterRemoval function with these inputs and prints the result.
+Overall, the approach utilizes a stack to efficiently handle the removal of digits while preserving the relative order of digits in the input number.
