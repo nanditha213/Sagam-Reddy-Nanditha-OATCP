@@ -1,0 +1,12 @@
+This C++ code implements the Ford-Fulkerson algorithm to find the maximum flow in a flow network. 
+
+Headers and Constants: The code includes necessary headers like <iostream>, <queue>, <cstring>, <chrono> for I/O, queue data structure, memory operations, and time measurement, respectively. It also defines a constant MAX_VERTICES which represents the maximum number of vertices in the graph.
+Function Prototypes and Namespaces: Function prototypes for find_augmenting_path and ford_fulkerson are declared. The code uses the std namespace and std::chrono namespace for timing purposes.
+Find Augmenting Path Function: The find_augmenting_path function performs a breadth-first search (BFS) on the residual graph to find an augmenting path from the source to the sink. It maintains an array visited to keep track of visited vertices, a queue bfs_queue to perform BFS, and an array parent to store the parent of each vertex in the augmenting path.
+Ford-Fulkerson Algorithm Function: The ford_fulkerson function initializes a residual graph with the capacities of the original graph. It repeatedly calls find_augmenting_path to find augmenting paths and updates the flow in the residual graph accordingly. The algorithm terminates when no augmenting path exists. It measures the execution time using std::chrono and returns the maximum flow.
+Main Function:
+Reads the number of vertices, source node, and sink node from the input.
+Initializes the graph with zero capacity and reads edge capacities from the input until -1 is encountered.
+Calls ford_fulkerson with the graph, source, and sink nodes, then prints the maximum flow.
+Time Complexity: The time complexity of the Ford-Fulkerson algorithm depends on the choice of augmenting paths and the method used to find them. In the worst case, it can be O(E * |f|), where E is the number of edges and |f| is the maximum flow. However, with certain augmenting path selection strategies, such as Edmonds-Karp using BFS, the complexity becomes O(V * E^2), where V is the number of vertices.
+Overall, this code efficiently finds the maximum flow in a given flow network using the Ford-Fulkerson algorithm with a BFS-based augmenting path search.
