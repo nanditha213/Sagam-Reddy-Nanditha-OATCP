@@ -1,0 +1,24 @@
+This C++ code aims to count the number of subgrids in a given grid where all elements are 1. 
+
+Function countSubgrids:
+It takes a 2D vector grid as input, representing the grid where elements are either 0 or 1.
+It first determines the size of the grid (size), assuming the number of rows and columns are equal.
+It initializes a vector rowBits of size size to store the bits representing each row of the grid.
+It then iterates over each row of the grid:
+For each element in the row, it bitwise ORs the element's value shifted left by (size - j) positions with the corresponding element in rowBits[i]. This operation sets the j-th bit of rowBits[i] to 1 if the grid element is 1.
+After processing all rows, rowBits[i] represents the bits corresponding to row i, with the j-th bit being set to 1 if the j-th column of row i contains a 1.
+Counting Subgrids:
+It initializes a variable subgridCount to count the number of subgrids with all elements as 1.
+It then iterates over pairs of rows in the grid (i, j) where i < j:
+It calculates the number of common bits between rowBits[i] and rowBits[j] using the __builtin_popcount function, which counts the number of set bits in an integer.
+It calculates the number of pairs of indices (k, l) within these common bits using the formula pairsCount = commonBits * (commonBits - 1) / 2. This formula counts all possible combinations of selecting 2 indices from commonBits indices.
+It adds pairsCount to subgridCount.
+Main Function:
+Reads the size of the grid from the user.
+Reads the elements of the grid from the user, populating the grid vector.
+Calls the countSubgrids function with the grid as input.
+Prints the result, which is the number of subgrids with all elements as 1.
+Time Complexity:
+The time complexity of this solution is O(n^2), where n is the size of the grid. This is because it iterates over all pairs of rows in the grid and performs constant-time operations within each iteration.
+Space Complexity:
+The space complexity is O(n), where n is the size of the grid. This is due to the rowBits vector, which stores the bits representing each row.
