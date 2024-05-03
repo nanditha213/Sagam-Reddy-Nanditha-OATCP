@@ -1,0 +1,22 @@
+This C++ code implements a solution to calculate the total Hamming distance of an array of integers.
+
+Headers and Constants: The code includes <bits/stdc++.h> header which is a convenient way to include most standard headers in a single line. It also defines a ll macro for long long int.
+Class Solution:
+The class Solution contains a single public method totalHammingDistance.
+This method takes a vector of integers nums as input and returns an integer representing the total Hamming distance.
+Inside the method, if the input vector nums is empty, it immediately returns 0.
+Total Hamming Distance Calculation:
+It initializes an array bits of size 32 (assuming integers are represented using 32 bits) and fills it with zeros.
+Then, for each integer n in the input vector nums, it iterates over each bit in n using bitwise operations.
+For each bit position i, it increments bits[i] by 1 if the corresponding bit in n is set.
+After processing all integers in nums, it calculates the total Hamming distance by iterating over the bits array and adding bits[i] * (k - bits[i]) to the answer, where k is the size of the input vector nums.
+Main Function:
+Reads the number of integers n from the input.
+Reads n integers into a vector nums.
+Creates an instance of Solution class and calls its totalHammingDistance method with the input vector nums.
+Prints the result.
+Time Complexity:
+The solution has a time complexity of O(n * 32), where n is the number of integers in the input vector nums. This is because for each integer, it iterates over its 32 bits to update the bits array.
+Overall, the time complexity is linear with respect to the size of the input vector nums.
+Space Complexity:
+The solution uses an additional array bits of size 32 to store the count of bits at each position, resulting in constant space complexity with respect to the input size.
